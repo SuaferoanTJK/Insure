@@ -1,0 +1,59 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.different{
+    padding: 15rem 0;
+    text-align: center;
+    @include m.tablet{
+        text-align: left;
+        padding: 27rem 0 15rem 0;
+    }
+    &__heading{
+        font-size: 5rem;
+        margin-bottom: 2rem;
+        &::before{
+            content: "";
+            display: block;
+            height: .2rem;
+            width: 15rem;
+            margin: 0 auto;
+            margin-bottom: 5rem;
+            background-color: lighten(v.$darkViolet,60%);
+            @include m.tablet{
+                width: 13rem;
+                margin: 0;
+                margin-bottom: 6rem;
+            }
+        }
+        @include m.tablet{
+            font-size: 5.5rem;
+        }
+    }
+    &__grid{
+        @include m.tablet{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 1.5rem;
+        }
+    }
+}
+.item{
+    &__image{
+        margin: 0 auto;
+        padding-top: 5rem;
+        @include m.tablet{
+            margin: 0;
+        }
+    }
+    &__title{
+        font-family: v.$fontHeading;
+        font-weight: 700;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1;
+        min-height: 3rem;
+    }
+    &__text{
+        color: v.$darkGrayishViolet;
+    }
+}

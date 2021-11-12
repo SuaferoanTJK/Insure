@@ -1,0 +1,86 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.footer{
+    padding: 5rem 0;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: contain;
+    background-image: url("../img/bg-pattern-footer-mobile.svg"), linear-gradient(to bottom, v.$veryLightGray 0% 100%);
+    @include m.tablet{
+        padding: 5rem 0 3rem 0;
+        background-size: unset;
+        background-image: url("../img/bg-pattern-footer-desktop.svg"), linear-gradient(to bottom, v.$veryLightGray 0% 100%);
+    }
+    &__top{
+        border-bottom: .1rem solid lighten(v.$darkGrayishViolet,20%);
+        padding: 6rem 0 4rem 0;
+        @include m.tablet{
+            width: unset;
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+    }
+    &__logo{
+        width: 15rem;
+        margin: 0 auto;
+        padding-bottom: 3rem;
+        @include m.tablet{
+            margin: 0;
+        }
+        
+    }
+    &__social{
+        img{
+            &:hover{
+                filter: invert(75%) sepia(70%) saturate(300%) hue-rotate(200deg) brightness(40%) contrast(100%);
+            }
+        }
+    }
+    &__networks{
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+    &__bot{
+        padding: 4rem 0 2rem 0;
+        text-transform: uppercase;
+        font-size: 1.8rem;
+        font-family: v.$fontBody;
+        @include m.tablet{
+            padding: 4rem 0 1rem 0;
+        }
+    }
+    &__grid{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        @include m.tablet{
+            grid-template-columns: repeat(4,1fr);
+        }
+    }
+    &__title{
+        color: v.$darkGrayishViolet;
+        margin-bottom: 2.5rem;
+        @include m.tablet{
+            text-align: left;    
+        }
+    }
+    &__links{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 5rem;
+        @include m.tablet{
+            align-items: flex-start;
+        }
+    }
+    &__link{
+        margin: 1rem 0;
+        color: v.$darkViolet;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}

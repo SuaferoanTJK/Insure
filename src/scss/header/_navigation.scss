@@ -1,0 +1,62 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.navigation{
+    display: none;
+    text-transform: uppercase;
+    align-items: center;
+    font-size: 1.6rem;
+    gap: 2rem;
+    font-family: v.$fontBody;
+    @include m.tablet{
+        display: flex;
+    }
+    &.show{
+        @include m.mobile{    
+            display: flex;
+            position: absolute;
+            width: 100%;
+            top: 7.5rem;
+            left: 0;
+            bottom: 0;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("../img/bg-pattern-mobile-nav.svg"), linear-gradient(to bottom, v.$veryDarkViolet 0% 100%);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: bottom center;
+            z-index: 10;
+        }
+    }
+    &__link{
+        text-decoration: none;
+        text-align: center;
+        color: v.$veryLightGray;
+        @include m.mobile{
+            width: 80%;
+            padding: 2rem;
+            margin: 0 auto;
+            font-size: 1.8rem;
+            &:first-of-type{
+                padding-top: 5rem;
+                @include m.tablet{
+                    padding-top: 2rem;
+                }
+            }
+        }
+        @include m.tablet{
+            color: v.$darkGrayishViolet;
+            &:hover{
+                color: v.$darkViolet;
+            }
+        }
+        &--button{
+            @include m.btn(v.$veryLightGray,v.$veryDarkViolet);
+            width: 85%;
+            @include m.tablet{
+                width: unset;
+                @include m.btn(v.$veryDarkViolet,v.$veryLightGray);
+            }
+        }
+    }
+}

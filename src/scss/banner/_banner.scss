@@ -1,0 +1,47 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.banner{
+    color: v.$veryLightGray;
+    text-align: center;
+    padding: 7rem 0;
+    margin-bottom: 15rem;
+    @include m.bg("../img/bg-pattern-how-we-work-mobile.svg");
+    @include m.tablet{
+        @include m.bg("../img/bg-pattern-how-we-work-desktop.svg");
+        padding: 7rem 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    @include m.desktop{
+        padding: 7rem;
+    }
+    &__heading{
+        font-size: 4.5rem;
+        font-weight: 400;
+        margin-bottom: 4rem;
+        line-height: 1;
+        @include m.tablet{
+            text-align: left;
+            margin-bottom: 0;
+        }
+        span{
+            display: block;
+        }
+    }
+    &__btn{
+        width: 20rem;
+        height: 4rem;
+        font-size: 1.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        font-family: v.$fontBody;
+        @include m.btn(v.$veryLightGray,v.$darkViolet);
+        @include m.tablet{
+            margin: 0;
+        }
+    }
+}
